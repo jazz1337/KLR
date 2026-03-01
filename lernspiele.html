@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lernspiele – KLR im E-Commerce</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .game-section { background:var(--white); border:1px solid var(--gray-200); border-radius:var(--radius-lg); padding:2rem 2rem 2.25rem; margin-bottom:2rem; box-shadow:var(--shadow); }
+    .game-header { display:flex; align-items:flex-start; gap:1rem; margin-bottom:1.5rem; padding-bottom:1.25rem; border-bottom:2px solid var(--gray-100); }
+    .game-icon { font-size:2.25rem; flex-shrink:0; line-height:1; }
+    .game-header h2 { margin:0; }
+    .game-header p  { margin:.2rem 0 0; color:var(--text-light); font-size:.9rem; }
+    .game-badge { display:inline-flex; align-items:center; background:var(--blue-xlight); color:var(--blue); font-family:var(--font-head); font-size:.75rem; font-weight:700; padding:.25rem .65rem; border-radius:20px; margin-bottom:.5rem; }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-logo" href="index.html"><span class="logo-badge">KLR</span> E-Commerce</a>
+    <button class="nav-toggle" aria-label="Navigation öffnen" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="grundlagen.html">Grundbegriffe</a></li>
+        <li><a href="ziele_aufgaben.html">Ziele &amp; Aufgaben</a></li>
+        <li><a href="aufbau.html">Aufbau</a></li>
+        <li><a href="praxis_beispiel.html">Praxisbeispiel</a></li>
+        <li><a href="lernspiele.html">Lernspiele</a></li>
+        <li><a href="quellen.html">Quellen</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <div class="container"><a href="index.html">Start</a><span class="breadcrumb-sep">›</span><span>Lernspiele</span></div>
+</div>
+
+<div class="page-hero">
+  <div class="container">
+    <span class="hero-tag">Kapitel E</span>
+    <h1>Lernspiele &amp; Übungen</h1>
+    <p>Teste dein Wissen mit einem Quiz und einem Zuordnungsspiel – und festige das Gelernte spielerisch.</p>
+  </div>
+</div>
+
+<main>
+  <div class="container">
+
+    <div style="max-width:820px; margin:0 auto 2rem;">
+      <div class="card">
+        <p>Auf dieser Seite findest du zwei interaktive Lernspiele. Arbeite sie durch, nachdem du die anderen
+        Kapitel gelesen hast. Beide Spiele können beliebig oft wiederholt werden.</p>
+      </div>
+    </div>
+
+    <!-- QUIZ -->
+    <section class="game-section" style="max-width:820px; margin:0 auto 2.5rem;">
+      <div class="game-header">
+        <span class="game-icon">🎯</span>
+        <div>
+          <div class="game-badge">Spiel 1 · Multiple Choice</div>
+          <h2>Quiz: Grundbegriffe der KLR</h2>
+          <p>8 Fragen – wähle die richtige Antwort und erhalte sofort Feedback.</p>
+        </div>
+      </div>
+      <div class="info-banner" style="margin-bottom:1.5rem;">
+        <strong>So funktioniert es:</strong> Wähle die richtige Antwort. Am Ende siehst du deine Gesamtpunktzahl.
+      </div>
+      <div id="quiz-container"><p style="color:var(--text-light);">Das Quiz wird geladen …</p></div>
+    </section>
+
+    <!-- ZUORDNUNG -->
+    <section class="game-section" style="max-width:820px; margin:0 auto 2.5rem;">
+      <div class="game-header">
+        <span class="game-icon">🔗</span>
+        <div>
+          <div class="game-badge">Spiel 2 · Zuordnung</div>
+          <h2>Spiel: Ordne die Begriffe richtig zu</h2>
+          <p>Weise jeweils den passenden Fachbegriff der richtigen Definition zu.</p>
+        </div>
+      </div>
+      <div class="info-banner" style="margin-bottom:1.5rem;">
+        <strong>So funktioniert es:</strong> Wähle für jede Definition den richtigen Begriff aus dem Dropdown.
+        Klicke auf „Auswerten", um das Ergebnis zu sehen.
+      </div>
+      <div id="matching-container"><p style="color:var(--text-light);">Das Spiel wird geladen …</p></div>
+    </section>
+
+    <div style="max-width:820px; margin:0 auto;">
+      <div class="merke-box">
+        <ul>
+          <li>Wiederhole die Lernspiele mehrmals – beim zweiten Durchlauf wirst du deutlich schneller und sicherer.</li>
+          <li>Lies dir bei falschen Antworten die Erklärung genau durch und schaue im entsprechenden Kapitel nach.</li>
+          <li>Das <strong>Quiz</strong> testet Begriffswissen; das <strong>Zuordnungsspiel</strong> prüft, ob du die Konzepte wirklich verstanden hast.</li>
+        </ul>
+      </div>
+      <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-top:2rem;">
+        <a class="btn btn-outline" href="praxis_beispiel.html">← Praxisbeispiel</a>
+        <a class="btn btn-primary" href="quellen.html">Weiter: Quellen →</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-brand">KLR im E-Commerce</span>
+    <ul class="footer-nav">
+      <li><a href="index.html">Start</a></li>
+      <li><a href="grundlagen.html">Grundbegriffe</a></li>
+      <li><a href="ziele_aufgaben.html">Ziele &amp; Aufgaben</a></li>
+      <li><a href="aufbau.html">Aufbau</a></li>
+      <li><a href="praxis_beispiel.html">Praxisbeispiel</a></li>
+      <li><a href="lernspiele.html">Lernspiele</a></li>
+      <li><a href="quellen.html">Quellen</a></li>
+    </ul>
+    <span class="footer-copy">Lernmodul · Kaufleute E-Commerce · made by Ben &amp; Jazz</span>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
