@@ -1,0 +1,86 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/index.html b/index.html
+new file mode 100644
+index 0000000000000000000000000000000000000000..0c45c07940a5ecd2621277b7823c49c8efac9a89
+--- /dev/null
++++ b/index.html
+@@ -0,0 +1,76 @@
++<!DOCTYPE html>
++<html lang="de">
++<head>
++  <meta charset="UTF-8">
++  <meta name="viewport" content="width=device-width, initial-scale=1.0">
++  <title>KLR im E-Commerce – Start</title>
++  <link rel="stylesheet" href="style.css">
++</head>
++<body>
++  <!-- Einheitlicher Header mit Navigation -->
++  <header class="site-header">
++    <div class="nav-wrap">
++      <a class="brand" href="index.html">KLR Lernmodul</a>
++      <nav aria-label="Hauptnavigation">
++        <ul>
++          <li><a href="index.html">Start</a></li>
++          <li><a href="grundlagen.html">Grundbegriffe</a></li>
++          <li><a href="ziele_aufgaben.html">Ziele & Aufgaben</a></li>
++          <li><a href="aufbau.html">Aufbau</a></li>
++          <li><a href="praxis_beispiel.html">Praxisbeispiel</a></li>
++          <li><a href="lernspiele.html">Lernspiele</a></li>
++          <li><a href="quellen.html">Quellen</a></li>
++        </ul>
++      </nav>
++    </div>
++  </header>
++
++  <main>
++    <section class="hero">
++      <h1>Einführung in die Kosten- und Leistungsrechnung (KLR) im E‑Commerce</h1>
++      <h2>Lernmodul für Ausbildung und Schule – verständlich erklärt, mit Beispielen und interaktiven Übungen.</h2>
++      <p>Die Kosten- und Leistungsrechnung (KLR) ist ein zentraler Bestandteil des internen Rechnungswesens. Sie hilft Unternehmen dabei, Kosten und Leistungen systematisch zu erfassen, zu planen und zu kontrollieren. In diesem Lernmodul lernst du die wichtigsten Grundbegriffe, Aufgaben und Instrumente der KLR kennen – mit einem besonderen Fokus auf Online-Handel und E‑Commerce.</p>
++    </section>
++
++    <section class="card">
++      <h3>Was erwartet dich?</h3>
++      <ul>
++        <li>klare Erklärungen zu Kosten, Leistungen und dem Unterschied zur Finanzbuchhaltung</li>
++        <li>Überblick über Aufgaben und Ziele der KLR</li>
++        <li>Aufbau der KLR: Kostenarten-, Kostenstellen- und Kostenträgerrechnung</li>
++        <li>durchgerechnetes Praxisbeispiel aus dem E‑Commerce</li>
++        <li>interaktive Lernspiele und Rechner zur Vertiefung</li>
++      </ul>
++      <p><strong>Hinweis:</strong> Nutze die Navigation oben, um direkt zu den Themen zu springen, oder arbeite das Modul Schritt für Schritt durch.</p>
++    </section>
++
++    <section class="card">
++      <h3>Schnellstart</h3>
++      <div class="button-grid">
++        <a class="btn" href="grundlagen.html">Zu den Grundbegriffen</a>
++        <a class="btn" href="ziele_aufgaben.html">Ziele & Aufgaben</a>
++        <a class="btn" href="aufbau.html">Aufbau der KLR</a>
++        <a class="btn" href="praxis_beispiel.html">Praxisbeispiel</a>
++        <a class="btn" href="lernspiele.html">Lernspiele starten</a>
++        <a class="btn btn-secondary" href="quellen.html">Quellen ansehen</a>
++      </div>
++    </section>
++
++    <aside class="merke" aria-label="Merke-Kasten">
++      <h3>Merke</h3>
++      <ul>
++        <li>Die KLR unterstützt interne Entscheidungen im Unternehmen.</li>
++        <li>Du lernst Grundlagen, Aufbau und Anwendung im E‑Commerce.</li>
++        <li>Interaktive Übungen helfen dir bei der Wiederholung.</li>
++      </ul>
++    </aside>
++  </main>
++
++  <footer class="site-footer">
++    <div class="site-footer-inner">
++      <p>© Lernmodul KLR im E‑Commerce | Für Ausbildung und Schule</p>
++    </div>
++  </footer>
++  <script src="script.js"></script>
++</body>
++</html>
+ 
+EOF
+)
