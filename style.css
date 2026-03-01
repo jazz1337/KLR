@@ -34,8 +34,8 @@
   --transition:  0.2s ease;
   --font-head:   'Sora', sans-serif;
   --font-body:   'Mulish', sans-serif;
-  --max-w:       1280px;
-  --content-w:   920px;
+  --max-w:       1400px;
+  --content-w:   1100px;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -229,21 +229,87 @@ tr:last-child td { border-bottom: none; }
 .accordion-content p, .accordion-content ul, .accordion-content ol { font-size: .9rem; }
 .accordion-content h4 { margin-top: .75rem; margin-bottom: .3rem; }
 
-/* KLR Flussdiagramm */
+/* KLR Flussdiagramm – vollständig responsiv, kein horizontales Scrollen */
 .klr-diagram {
   background: var(--gray-100); border: 1px solid var(--gray-200);
   border-radius: var(--radius-lg); padding: 1.75rem 2rem; margin: 1.5rem 0;
 }
-.klr-diagram-title { text-align: center; font-family: var(--font-head); font-weight: 800; font-size: 1rem; color: var(--navy); margin-bottom: 1.5rem; }
+.klr-diagram-title {
+  text-align: center; font-family: var(--font-head); font-weight: 800;
+  font-size: 1rem; color: var(--navy); margin-bottom: 1.5rem;
+}
+
+/* ---- Desktop-Layout: 5-Spalten-Grid ---- */
+.klr-flow-grid {
+  display: grid;
+  grid-template-columns: 1fr 28px 1fr 28px 1fr;
+  gap: 0.5rem;
+  align-items: start;
+}
+/* Pfeil-Spalten */
+.klf-arrow {
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; color: var(--gray-400); padding-top: 2.5rem;
+  height: 100%;
+}
+/* Jede Spalte (Stufe) */
+.klf-col { display: flex; flex-direction: column; gap: 0.5rem; }
+
+/* Basis-Box */
+.klf-box {
+  border-radius: var(--radius); padding: 0.65rem 0.9rem;
+  font-size: 0.82rem; line-height: 1.4;
+}
+/* Varianten */
+.klf-header {
+  background: #1565c0; color: white;
+  font-family: var(--font-head); font-weight: 800;
+  font-size: 0.78rem; letter-spacing: .04em; text-transform: uppercase;
+  text-align: center; padding: 0.55rem 0.9rem;
+}
+.klf-header.teal  { background: #0097a7; }
+.klf-header.red   { background: #c62828; }
+.klf-header.red2  { background: #c62828; }
+
+.klf-question {
+  background: var(--white); color: var(--navy);
+  border: 1px dashed var(--gray-300);
+  font-family: var(--font-body); font-size: 0.82rem;
+}
+.klf-question strong { color: var(--navy); }
+
+.klf-content {
+  background: var(--white); color: var(--navy);
+  border: 1px solid var(--gray-200);
+  font-family: var(--font-body); font-size: 0.82rem;
+}
+.klf-content strong { color: var(--navy); }
+
+.klf-content.highlight-red {
+  background: #fff5f5; border-color: #fca5a5;
+}
+.klf-definition {
+  background: var(--white); color: var(--text-light);
+  border: 1px solid var(--gray-200);
+  font-family: var(--font-body); font-size: 0.79rem;
+}
+
+/* ---- Mobile: Stapel-Layout ab 640px ---- */
+@media (max-width: 640px) {
+  .klr-flow-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .klf-arrow { padding-top: 0; height: auto; transform: rotate(90deg); font-size: 1.2rem; }
+}
+
+/* Alte klr-flow-table – nicht mehr verwendet, Fallback */
 .klr-flow-table { width: 100%; border-collapse: separate; border-spacing: 8px; }
 .klr-flow-table td { padding: .6rem .9rem; border-radius: var(--radius); text-align: center; font-size: .82rem; vertical-align: middle; font-family: var(--font-head); font-weight: 600; }
 .kft-blue { background: #1565c0; color: white; }
-.kft-teal { background: #0097a7; color: white; }
-.kft-red  { background: #c62828; color: white; }
 .kft-mid  { background: var(--white); color: var(--navy); border: 1px solid var(--gray-200); font-weight: 400; font-size: .8rem; font-family: var(--font-body); }
 .kft-note { background: var(--white); color: var(--text-light); border: 1px dashed var(--gray-300); font-weight: 400; font-size: .8rem; font-family: var(--font-body); }
 .kft-arrow { background: transparent; color: var(--gray-400); font-size: 1.2rem; padding: 0 .25rem; }
-.kft-label { background: transparent; color: var(--text-light); font-size: .75rem; font-style: italic; font-family: var(--font-body); font-weight: 400; }
 
 /* Form */
 .form-group { margin-bottom: 1.1rem; }

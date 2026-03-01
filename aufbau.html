@@ -42,9 +42,9 @@
   <div class="container-narrow">
 
     <!-- C1: Übersicht und Diagramm -->
-    <section class="section">
+    <section class="section" id="c1">
       <div class="section-title-wrap">
-        <div class="section-label">C1</div>
+        <div class="section-label"><a href="#c1" style="color:inherit; text-decoration:none;">C1</a></div>
         <h2>Elemente der Kosten- und Leistungsrechnung</h2>
       </div>
       <div class="card">
@@ -52,65 +52,63 @@
         zentrale Frage beantwortet – und die Ergebnisse einer Stufe fließen in die nächste ein.</p>
       </div>
 
-      <!-- Flussdiagramm nach Bild 2 -->
+      <!-- Flussdiagramm – vollständig responsives CSS-Grid, kein Scrollen -->
       <div class="klr-diagram">
         <div class="klr-diagram-title">Kosten- und Leistungsrechnung – Überblick</div>
-        <div style="overflow-x:auto;">
-          <table class="klr-flow-table" style="min-width:560px;">
-            <tbody>
-              <!-- Zeile 1: Stufen-Header -->
-              <tr>
-                <td class="kft-blue" style="font-size:.8rem; letter-spacing:.04em; text-transform:uppercase; font-weight:800;">Kostenartenrechnung</td>
-                <td class="kft-arrow"></td>
-                <td colspan="2" class="kft-blue" style="font-size:.8rem; letter-spacing:.04em; text-transform:uppercase; font-weight:800; background:#0097a7;">Kostenstellenrechnung</td>
-                <td class="kft-arrow"></td>
-                <td class="kft-blue" style="font-size:.8rem; letter-spacing:.04em; text-transform:uppercase; font-weight:800; background:#c62828;">Kostenstellen</td>
-              </tr>
-              <!-- Zeile 2: Frage links, Gemeinkosten, KSR-Inhalt, Kostenstellen-Def -->
-              <tr>
-                <td rowspan="2" class="kft-note" style="text-align:left; padding: .75rem 1rem;">
-                  <strong>WELCHE</strong> Kosten sind angefallen?
-                </td>
-                <td class="kft-arrow">→</td>
-                <td class="kft-mid" style="font-size:.82rem;">
-                  <strong>Gemeinkosten</strong><br>
-                  <span style="font-size:.78rem; color:var(--text-light);">können Kostenträgern<br><strong>NICHT DIREKT</strong> zugeordnet werden</span>
-                </td>
-                <td class="kft-arrow">→</td>
-                <td class="kft-note" style="font-size:.8rem; text-align:left; padding:.6rem .9rem;">
-                  <strong>WO</strong> sind die Kosten angefallen?
-                </td>
-                <td class="kft-mid" style="font-size:.8rem;">
-                  = Orte der Leistungs&shy;entstehung (z. B. Abteilungen)
-                </td>
-              </tr>
-              <!-- Zeile 3: Einzelkosten / Kostenträgerrechnung -->
-              <tr>
-                <td class="kft-arrow">→</td>
-                <td class="kft-mid" style="font-size:.82rem;">
-                  <strong>Einzelkosten</strong><br>
-                  <span style="font-size:.78rem; color:var(--text-light);">können Kostenträgern<br><strong>DIREKT</strong> zugeordnet werden</span>
-                </td>
-                <td class="kft-arrow">→</td>
-                <td class="kft-note" style="font-size:.8rem; text-align:left; padding:.6rem .9rem; background:#fff0f0; border-color:#fca5a5;">
-                  <strong>WOFÜR</strong> sind die Kosten angefallen?
-                </td>
-                <td class="kft-mid" style="font-size:.8rem; background:#fff0f0; border-color:#fca5a5;">
-                  = Produkte oder Dienstleistungen
-                </td>
-              </tr>
-              <!-- Zeile 4: Kostenträgerrechnung-Label -->
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td colspan="2" class="kft-blue" style="font-size:.8rem; letter-spacing:.04em; text-transform:uppercase; font-weight:800; background:#c62828; text-align:center;">Kostenträgerrechnung</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p style="font-size:.8rem; color:var(--text-light); margin-top:1rem; text-align:center;">
+
+        <div class="klr-flow-grid">
+
+          <!-- SPALTE 1: Kostenartenrechnung -->
+          <div class="klf-col">
+            <div class="klf-box klf-header">Kostenartenrechnung</div>
+            <div class="klf-box klf-question">
+              <strong>WELCHE</strong> Kosten sind angefallen?
+            </div>
+            <div class="klf-box klf-content" style="font-size:.79rem; color:var(--text-light); border-style:dashed;">
+              Erfassung aller Kosten nach ihrer Art (Personal, Material, Versand, Marketing …)
+            </div>
+          </div>
+
+          <!-- PFEIL 1 -->
+          <div class="klf-arrow">→</div>
+
+          <!-- SPALTE 2: Kostenstellenrechnung -->
+          <div class="klf-col">
+            <div class="klf-box klf-header teal">Kostenstellenrechnung</div>
+
+            <div class="klf-box klf-content">
+              <strong>Gemeinkosten</strong><br>
+              <span style="font-size:.78rem; color:var(--text-light);">können Kostenträgern <strong>NICHT DIREKT</strong> zugeordnet werden → über Kostenstellen verteilen</span>
+            </div>
+            <div class="klf-box klf-content">
+              <strong>Einzelkosten</strong><br>
+              <span style="font-size:.78rem; color:var(--text-light);">können Kostenträgern <strong>DIREKT</strong> zugeordnet werden → direkt weiterverarbeiten</span>
+            </div>
+            <div class="klf-box klf-question">
+              <strong>WO</strong> sind die Kosten angefallen?
+            </div>
+          </div>
+
+          <!-- PFEIL 2 -->
+          <div class="klf-arrow">→</div>
+
+          <!-- SPALTE 3: Kostenträgerrechnung -->
+          <div class="klf-col">
+            <div class="klf-box klf-header red">Kostenträgerrechnung &amp; Kostenstellen</div>
+            <div class="klf-box klf-question" style="background:#fff5f5; border-color:#fca5a5;">
+              <strong>WOFÜR</strong> sind die Kosten angefallen?
+            </div>
+            <div class="klf-box klf-content highlight-red">
+              <strong>Kostenstellen</strong> = Orte der Leistungsentstehung (z. B. Abteilungen)
+            </div>
+            <div class="klf-box klf-content highlight-red">
+              <strong>Kostenträger</strong> = Produkte oder Dienstleistungen
+            </div>
+          </div>
+
+        </div><!-- /klr-flow-grid -->
+
+        <p style="font-size:.8rem; color:var(--text-light); margin-top:1.1rem; text-align:center;">
           Gemeinkosten fließen über die Kostenstellenrechnung in die Kostenträgerrechnung ein – Einzelkosten werden direkt zugerechnet.
         </p>
       </div>
@@ -119,9 +117,9 @@
     <hr class="divider">
 
     <!-- STUFE 1: Kostenartenrechnung -->
-    <section class="section">
+    <section class="section" id="stufe1">
       <div class="section-title-wrap">
-        <div class="section-label">Stufe 1</div>
+        <div class="section-label"><a href="#stufe1" style="color:inherit; text-decoration:none;">Stufe 1</a></div>
         <h2>Kostenartenrechnung – „Welche Kosten?"</h2>
       </div>
 
@@ -215,9 +213,9 @@
     </section>
 
     <!-- STUFE 2: Kostenstellenrechnung -->
-    <section class="section">
+    <section class="section" id="stufe2">
       <div class="section-title-wrap">
-        <div class="section-label">Stufe 2</div>
+        <div class="section-label"><a href="#stufe2" style="color:inherit; text-decoration:none;">Stufe 2</a></div>
         <h2>Kostenstellenrechnung – „Wo fallen die Kosten an?"</h2>
       </div>
 
@@ -282,9 +280,9 @@
     </section>
 
     <!-- STUFE 3: Kostenträgerrechnung -->
-    <section class="section">
+    <section class="section" id="stufe3">
       <div class="section-title-wrap">
-        <div class="section-label">Stufe 3</div>
+        <div class="section-label"><a href="#stufe3" style="color:inherit; text-decoration:none;">Stufe 3</a></div>
         <h2>Kostenträgerrechnung – „Wofür fallen die Kosten an?"</h2>
       </div>
 
@@ -362,9 +360,9 @@
     <hr class="divider">
 
     <!-- C2: Betriebserfolg -->
-    <section class="section">
+    <section class="section" id="c2">
       <div class="section-title-wrap">
-        <div class="section-label">C2</div>
+        <div class="section-label"><a href="#c2" style="color:inherit; text-decoration:none;">C2</a></div>
         <h2>Betriebserfolg</h2>
       </div>
 
