@@ -49,19 +49,22 @@
       </div>
       <div class="card">
         <p>Ein Online-Händler möchte den Mindestverkaufspreis für ein Produkt ermitteln.
-        Dazu erfasst er zunächst alle anfallenden Kosten – aufgeteilt in variable Kosten je Bestellung
-        und fixe Kosten pro Monat.</p>
+        Dazu erfasst er zunächst alle anfallenden Kosten (Stufe 1: Kostenarten), ordnet sie Kostenstellen zu (Stufe 2)
+        und rechnet sie anschließend auf die Bestellung als Kostenträger um (Stufe 3).</p>
       </div>
 
-      <div class="card card-blue">
-        <h3>Schritt 1: Variable Kosten je Bestellung</h3>
+            <div class="card card-blue">
+        <h3>Stufe 1: Kostenartenrechnung (Welche Kosten?)</h3>
+        <p style="font-size:.9rem; color:var(--text-light); margin-top:.5rem;">In der Kostenartenrechnung werden die Kosten nach Art erfasst und in <strong>variable</strong> (je Bestellung) und <strong>fixe</strong> Kosten (pro Monat) getrennt.</p>
+
+        <h4 style="margin-top:1rem;">Variable Kosten je Bestellung</h4>
         <div class="table-wrap">
           <table>
             <thead><tr><th>Kostenart</th><th style="text-align:right;">Betrag</th></tr></thead>
             <tbody>
               <tr><td>Wareneinsatz</td><td style="text-align:right;">20,00 €</td></tr>
               <tr><td>Verpackung</td><td style="text-align:right;">1,00 €</td></tr>
-              <tr><td>Versand</td><td style="text-align:right;">5,00 €</td></tr>
+              <tr><td>Versand (Label/Porto)</td><td style="text-align:right;">5,00 €</td></tr>
               <tr><td>Marketing pro Verkauf (anteilig)</td><td style="text-align:right;">3,00 €</td></tr>
               <tr style="background:var(--navy); color:white;">
                 <td><strong>Variable Kosten insgesamt je Bestellung</strong></td>
@@ -70,16 +73,84 @@
             </tbody>
           </table>
         </div>
+
+        <h4 style="margin-top:1rem;">Fixe Kostenarten pro Monat</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Fixe Kostenart</th><th style="text-align:right;">Betrag pro Monat</th></tr></thead>
+            <tbody>
+              <tr><td>Miete Lager</td><td style="text-align:right;">3.000,00 €</td></tr>
+              <tr><td>Festgehälter (Lager/Support)</td><td style="text-align:right;">3.200,00 €</td></tr>
+              <tr><td>Shop-Software / Hosting / Tools</td><td style="text-align:right;">800,00 €</td></tr>
+              <tr><td>Agentur/Grundkosten Marketing</td><td style="text-align:right;">1.000,00 €</td></tr>
+              <tr style="background:var(--navy); color:white;">
+                <td><strong>Fixe Kosten insgesamt pro Monat</strong></td>
+                <td style="text-align:right;"><strong>8.000,00 €</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Stufe 2: Kostenstellenrechnung (Wo entstehen die Kosten?)</h3>
+        <p style="font-size:.9rem; color:var(--text-light); margin-top:.5rem;">Die Kosten werden nun auf Kostenstellen (z.&nbsp;B. Abteilungen) verteilt. Wichtig: In jeder Kostenstelle können <strong>fixe</strong> und <strong>variable</strong> Kosten gleichzeitig vorkommen.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Kostenstelle</th>
+                <th style="text-align:right;">Variable Kosten/Monat</th>
+                <th style="text-align:right;">Fixe Kosten/Monat</th>
+                <th style="text-align:right;">Summe</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Einkauf/Wareneinsatz</td>
+                <td style="text-align:right;">20.000,00 €</td>
+                <td style="text-align:right;">0,00 €</td>
+                <td style="text-align:right;">20.000,00 €</td>
+              </tr>
+              <tr>
+                <td>Versand &amp; Lager</td>
+                <td style="text-align:right;">6.000,00 €</td>
+                <td style="text-align:right;">5.000,00 €</td>
+                <td style="text-align:right;">11.000,00 €</td>
+              </tr>
+              <tr>
+                <td>Marketing</td>
+                <td style="text-align:right;">3.000,00 €</td>
+                <td style="text-align:right;">1.000,00 €</td>
+                <td style="text-align:right;">4.000,00 €</td>
+              </tr>
+              <tr>
+                <td>IT/Verwaltung</td>
+                <td style="text-align:right;">0,00 €</td>
+                <td style="text-align:right;">2.000,00 €</td>
+                <td style="text-align:right;">2.000,00 €</td>
+              </tr>
+
+              <tr style="background:var(--navy); color:white;">
+                <td><strong>Summe (Monat)</strong></td>
+                <td style="text-align:right;"><strong>29.000,00 €</strong></td>
+                <td style="text-align:right;"><strong>8.000,00 €</strong></td>
+                <td style="text-align:right;"><strong>37.000,00 €</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <div class="card card-amber">
-        <h3>Schritt 2: Fixe Kosten anteilig je Bestellung</h3>
+        <h3>Stufe 3: Kostenträgerrechnung (Wofür?) – Fixe Kosten anteilig je Bestellung</h3>
         <div class="table-wrap">
           <table>
             <thead><tr><th>Position</th><th style="text-align:right;">Betrag</th></tr></thead>
             <tbody>
               <tr><td>Fixe Kosten pro Monat (Lager, Personal, Software, …)</td><td style="text-align:right;">8.000,00 €</td></tr>
-              <tr><td>Bestellungen pro Monat (geplant)</td><td style="text-align:right;">1.000 Stück</td></tr>
+              <tr><td>Bestellungen pro Monat (geplant)</td><td style="text-align:right;">1.000 Bestellungen</td></tr>
               <tr style="background:var(--navy); color:white;">
                 <td><strong>Fixe Kosten je Bestellung</strong></td>
                 <td style="text-align:right;"><strong>8,00 €</strong></td>
@@ -92,7 +163,7 @@
 
       <div class="card">
         <h3>Schritt 3: Selbstkosten und Zielverkaufspreis</h3>
-        <div class="formula-box">Selbstkosten = Variable Kosten + Fixe Kosten je Stück = 29,00 € + 8,00 € = <strong>37,00 €</strong></div>
+        <div class="formula-box">Selbstkosten = Variable Kosten + Fixe Kosten je Bestellung = 29,00 € + 8,00 € = <strong>37,00 €</strong></div>
         <div class="formula-box">Zielverkaufspreis = Selbstkosten × (1 + Gewinnzuschlag) = 37,00 € × 1,15 = <strong>42,55 €</strong> ≈ gerundet <strong>42,90 €</strong></div>
         <p style="margin-top:.75rem;">Bei einem Ziel-Gewinnzuschlag von 15 % ergibt sich ein Zielverkaufspreis von 42,55 €, gerundet auf 42,90 €.</p>
       </div>
@@ -118,7 +189,7 @@
           <thead><tr><th colspan="2">Gesamtübersicht: Kalkulation je Bestellung</th></tr></thead>
           <tbody>
             <tr><td>Variable Kosten je Bestellung</td><td style="text-align:right;">29,00 €</td></tr>
-            <tr><td>Fixe Kosten je Bestellung (bei 1.000 Stück)</td><td style="text-align:right;">8,00 €</td></tr>
+            <tr><td>Fixe Kosten je Bestellung (bei 1.000 Bestellungen)</td><td style="text-align:right;">8,00 €</td></tr>
             <tr><td><strong>Selbstkosten je Bestellung</strong></td><td style="text-align:right;"><strong>37,00 €</strong></td></tr>
             <tr><td>Gewinnzuschlag 15 %</td><td style="text-align:right;">5,55 €</td></tr>
             <tr><td><strong>Zielverkaufspreis (gerundet)</strong></td><td style="text-align:right;"><strong>42,90 €</strong></td></tr>
@@ -143,11 +214,11 @@
         <form id="rechner-form" novalidate style="margin-top:1.25rem;">
           <div class="grid-2">
             <div class="form-group">
-              <label for="vp">Verkaufspreis je Stück (€)</label>
+              <label for="vp">Verkaufspreis je Bestellung (€)</label>
               <input type="number" id="vp" name="vp" min="0" step="0.01" placeholder="z. B. 42.90" value="42.90" required>
             </div>
             <div class="form-group">
-              <label for="vk">Variable Kosten je Stück (€)</label>
+              <label for="vk">Variable Kosten je Bestellung (€)</label>
               <input type="number" id="vk" name="vk" min="0" step="0.01" placeholder="z. B. 29.00" value="29.00" required>
             </div>
           </div>
@@ -167,7 +238,7 @@
         <h3>Verwendete Formeln</h3>
         <div class="formula-box">Deckungsbeitrag (DB) = Verkaufspreis – Variable Kosten</div>
         <div class="formula-box">Deckungsbeitragsrate = Deckungsbeitrag ÷ Verkaufspreis × 100</div>
-        <div class="formula-box">Break-even-Menge = Fixkosten ÷ Deckungsbeitrag (auf ganze Stück aufrunden)</div>
+        <div class="formula-box">Break-even-Menge = Fixkosten ÷ Deckungsbeitrag (auf ganze Bestellungen aufrunden)</div>
 
         <div class="info-banner" style="margin-top:1rem;">
           <strong>Tipp:</strong> Probiere verschiedene Szenarien aus – was passiert, wenn die Versandkosten steigen? Wie verändert sich der Break-even, wenn du den Verkaufspreis erhöhst?
