@@ -1,0 +1,20 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/ziele_aufgaben.html b/ziele_aufgaben.html
+new file mode 100644
+index 0000000000000000000000000000000000000000..35a406c0df72c1ec56fe2156cb8ab235365dbcac
+--- /dev/null
++++ b/ziele_aufgaben.html
+@@ -0,0 +1,10 @@
++<!DOCTYPE html>
++<html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Ziele und Aufgaben der KLR</title><link rel="stylesheet" href="style.css"></head><body>
++<header class="site-header"><div class="nav-wrap"><a class="brand" href="index.html">KLR Lernmodul</a><nav aria-label="Hauptnavigation"><ul><li><a href="index.html">Start</a></li><li><a href="grundlagen.html">Grundbegriffe</a></li><li><a href="ziele_aufgaben.html">Ziele & Aufgaben</a></li><li><a href="aufbau.html">Aufbau</a></li><li><a href="praxis_beispiel.html">Praxisbeispiel</a></li><li><a href="lernspiele.html">Lernspiele</a></li><li><a href="quellen.html">Quellen</a></li></ul></nav></div></header>
++<main>
++<h1>Ziele und Aufgaben der KLR</h1>
++<section class="card"><h2>B1. Aufgaben der Kosten- und Leistungsrechnung</h2><p>Die KLR liefert wichtige Informationen für die operative Steuerung und wirtschaftliche Entscheidungen im Unternehmen.</p><h3>Kalkulation</h3><p>Ermittlung von Selbstkosten und Deckungsbeiträgen sowie Ableitung von Mindestpreisen und Preisuntergrenzen.</p><h3>Wirtschaftlichkeitskontrolle</h3><p>Soll-Ist-Vergleich von Kosten und Leistungen, Erkennen von Abweichungen und Analyse der Ursachen.</p><h3>Planung und Entscheidungen</h3><p>Unterstützung bei Budgetplanung, Break-even-Analysen, Sortimentsentscheidungen und Kanalsteuerung.</p></section>
++<section class="card"><h2>B2. KLR im Online-Handel</h2><ul><li>Preis- und Margendruck: Versand- und Werbekosten beeinflussen den Gewinn direkt.</li><li>Viele variable Kosten pro Bestellung (Verpackung, Versand, Zahlungs- und Marktplatzgebühren) – saubere Kalkulation pro Produkt/Bestellung ist entscheidend.</li><li>Marketing als großer Kostenblock: Rentabilität je Kanal prüfen (Kosten pro Bestellung vs. Deckungsbeitrag).</li><li>Retouren und Fulfillment verursachen Zusatzkosten – die KLR macht diese transparent und planbar.</li></ul></section>
++<aside class="merke"><h3>Merke</h3><ul><li>KLR verbindet Kalkulation, Kontrolle und Planung.</li><li>Im E‑Commerce sind variable Kosten und Marketingwirkung besonders relevant.</li><li>Die KLR schafft Transparenz für bessere Preis- und Sortimentsentscheidungen.</li></ul></aside>
++</main>
++<footer class="site-footer"><div class="site-footer-inner"><p>© Lernmodul KLR im E‑Commerce | Für Ausbildung und Schule</p></div></footer><script src="script.js"></script></body></html>
+ 
+EOF
+)
