@@ -1,0 +1,43 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/quellen.html b/quellen.html
+new file mode 100644
+index 0000000000000000000000000000000000000000..733705890168bb08c6ffdf59b4564d5e77fcffdb
+--- /dev/null
++++ b/quellen.html
+@@ -0,0 +1,33 @@
++<!DOCTYPE html>
++<html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Quellen</title><link rel="stylesheet" href="style.css"></head><body>
++<header class="site-header"><div class="nav-wrap"><a class="brand" href="index.html">KLR Lernmodul</a><nav aria-label="Hauptnavigation"><ul><li><a href="index.html">Start</a></li><li><a href="grundlagen.html">Grundbegriffe</a></li><li><a href="ziele_aufgaben.html">Ziele & Aufgaben</a></li><li><a href="aufbau.html">Aufbau</a></li><li><a href="praxis_beispiel.html">Praxisbeispiel</a></li><li><a href="lernspiele.html">Lernspiele</a></li><li><a href="quellen.html">Quellen</a></li></ul></nav></div></header>
++<main>
++<h1>Quellenübersicht</h1>
++<section class="card"><h2>Lehrmaterialien & Skripte</h2><ul>
++<li>Justus-Liebig-Universität Gießen, Wöhrmann: <em>Accounting – Grundlagen der Kostenrechnung</em>, Skript (PDF), o. J., URL: https://www.uni-giessen.de/, Abruf: 10.01.2026.</li>
++<li>Freie und Hansestadt Hamburg, Finanzbehörde: <em>Kosten- und Leistungsrechnung in der Hamburger Verwaltung</em>, Leitfaden, 1996, URL: https://www.hamburg.de/, Abruf: 10.01.2026.</li>
++<li>Universität Oldenburg (Lachnit/Müller): <em>Kosten- und Leistungsrechnung</em>, Leseprobe, 2015, URL: https://uol.de/, Abruf: 10.01.2026.</li>
++<li>IHK Chemnitz: <em>Unternehmensplanung – Controlling</em>, Webseite, URL: https://www.ihk.de/chemnitz/, Abruf: 10.01.2026.</li>
++</ul></section>
++<section class="card"><h2>Webseiten & Lexika</h2><ul>
++<li>Lexware Unternehmerlexikon: <em>Deckungsbeitrag</em>, Fachlexikon-Webseite, URL: https://www.lexware.de/, Abruf: 10.01.2026.</li>
++<li>Lexware Unternehmerlexikon: <em>Betriebsergebnis</em>, Fachlexikon-Webseite, URL: https://www.lexware.de/, Abruf: 10.01.2026.</li>
++<li>Studyflix: <em>Kosten- und Leistungsrechnung (KLR) einfach erklärt</em>, Online-Lernplattform, URL: https://studyflix.de/, Abruf: 10.01.2026.</li>
++<li>Studysmarter: <em>Kosten- und Leistungsrechnung</em>, Online-Lernplattform, URL: https://www.studysmarter.de/, Abruf: 10.01.2026.</li>
++<li>Buchhaltung-einfach-sicher.de: <em>Kosten- und Leistungsrechnung einfach erklärt</em>, Webseite, URL: https://buchhaltung-einfach-sicher.de/, Abruf: 10.01.2026.</li>
++</ul></section>
++<section class="card"><h2>Beispiele E‑Commerce & Rechner</h2><ul>
++<li>Shopify Deutschland: <em>Versandkosten im Online-Shop berechnen</em>, Webseite, URL: https://www.shopify.com/de/blog/, Abruf: 10.01.2026.</li>
++<li>DHL Paket: <em>Preisübersicht DHL Paket</em>, PDF, URL: https://www.dhl.de/, Abruf: 10.01.2026.</li>
++<li>Amazon: <em>Versand durch Amazon (FBA) – Gebührenübersicht</em>, Rate Card (PDF), URL: https://sell.amazon.de/, Abruf: 10.01.2026.</li>
++<li>SnapSoft: <em>Preiskalkulation im Onlineshop</em>, Webseite, URL: https://snapsoft.de/, Abruf: 10.01.2026.</li>
++<li>Ecomwealth: <em>E‑commerce Deckungsbeitrag Rechner</em>, Webseite, URL: https://ecomwealth.io/, Abruf: 10.01.2026.</li>
++<li>go-ecommerce.de: <em>Deckungsbeitrag im E‑Commerce</em>, Webseite, URL: https://go-ecommerce.de/, Abruf: 10.01.2026.</li>
++</ul></section>
++<section class="card"><h2>Lernspiele/Gamification-Hintergrund</h2><ul>
++<li>e-teaching.org: <em>Game Based Learning</em>, Informationsportal, URL: https://www.e-teaching.org/, Abruf: 10.01.2026.</li>
++<li>Bundesinstitut für Berufsbildung (BIBB): <em>Digitales Lernen in der Berufsbildung</em>, Hintergrundmaterial, URL: https://www.bibb.de/, Abruf: 10.01.2026.</li>
++</ul></section>
++<aside class="merke"><h3>Merke</h3><ul><li>Die Quellen kombinieren Fachliteratur, Praxisbeispiele und Lernportale.</li><li>Für eigene Aufgaben solltest du Quellen regelmäßig auf Aktualität prüfen.</li><li>Nutze mehrere Quellen, um Begriffe sicher einzuordnen.</li></ul></aside>
++</main>
++<footer class="site-footer"><div class="site-footer-inner"><p>© Lernmodul KLR im E‑Commerce | Für Ausbildung und Schule</p></div></footer><script src="script.js"></script></body></html>
+ 
+EOF
+)
