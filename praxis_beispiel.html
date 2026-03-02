@@ -5,6 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Praxisbeispiel &amp; Rechner – KLR im E-Commerce</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* BAB-Tabelle: etwas kompakter, Kopfspalte fixiert beim Scrollen */
+    .bab-wrap { overflow-x: auto; margin: 1rem 0; border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+    .bab-table { width: 100%; border-collapse: collapse; background: var(--white); font-size: .87rem; }
+    .bab-table thead th {
+      background: var(--navy); color: var(--white); font-family: var(--font-head);
+      font-weight: 700; font-size: .78rem; letter-spacing: .04em; text-transform: uppercase;
+      padding: .7rem .9rem; text-align: right; white-space: nowrap;
+    }
+    .bab-table thead th:first-child { text-align: left; }
+    .bab-table tbody tr:nth-child(even) { background: var(--gray-50); }
+    .bab-table tbody tr:hover { background: var(--blue-xlight); }
+    .bab-table td { padding: .6rem .9rem; border-bottom: 1px solid var(--gray-200); vertical-align: middle; }
+    .bab-table td:not(:first-child) { text-align: right; white-space: nowrap; }
+    .bab-table tr:last-child td { border-bottom: none; }
+    .bab-table .bab-head td {
+      background: var(--gray-100); color: var(--text-light);
+      font-family: var(--font-head); font-size: .72rem; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: .38rem .9rem; border-bottom: 1px solid var(--gray-200);
+    }
+    .bab-table .bab-sum td { background: var(--navy); color: white; font-weight: 700; }
+    .bab-table .bab-bezug td { background: var(--gray-100); color: var(--text); font-style: italic; font-size: .83rem; }
+    .bab-table .bab-zuschlag td { background: var(--amber-light); color: var(--amber-dark); font-weight: 700; font-family: var(--font-head); }
+    .bab-table .bab-total-zuschlag td { background: var(--amber); color: var(--navy); font-weight: 800; font-family: var(--font-head); }
+    .bab-key { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: .3rem; vertical-align: middle; }
+
+    /* Schlüssel-Box im BAB */
+    .bab-key-box {
+      background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius);
+      padding: .65rem 1rem; margin-bottom: .75rem; font-size: .82rem; color: var(--text-light);
+    }
+    .bab-key-box strong { color: var(--navy); }
+
+    /* Stufe-3-Aufschlüsselungs-Grid */
+    .sk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+    @media (max-width: 640px) { .sk-grid { grid-template-columns: 1fr; } }
+
+    /* Definitions-Satz je Stufe */
+    .stufe-definition {
+      display: flex; align-items: flex-start; gap: .65rem;
+      background: var(--navy); color: var(--white);
+      border-radius: var(--radius); padding: .65rem 1rem;
+      font-family: var(--font-head); font-size: .88rem; font-weight: 600;
+      margin-bottom: 1rem; line-height: 1.45;
+    }
+    .stufe-definition .sd-icon {
+      font-size: 1.1rem; flex-shrink: 0; margin-top: .05rem;
+    }
+  </style>
 </head>
 <body>
 
@@ -27,209 +77,428 @@
 </header>
 
 <div class="breadcrumb">
-  <div class="container"><a href="index.html">Start</a><span class="breadcrumb-sep">›</span><span>Praxisbeispiel &amp; Rechner</span></div>
+  <div class="container">
+    <a href="index.html">Start</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Praxisbeispiel &amp; Rechner</span>
+  </div>
 </div>
 
 <div class="page-hero">
   <div class="container">
     <span class="hero-tag">Kapitel D</span>
     <h1>Praxisbeispiel: Preisbestimmung mit KLR</h1>
-    <p>Schritt für Schritt: Wie ein Online-Händler seinen Verkaufspreis kalkuliert, den Deckungsbeitrag ermittelt und den Break-even berechnet.</p>
+    <p>Schritt für Schritt durch alle drei Stufen der KLR – von der Kostenerfassung über den Betriebsabrechnungsbogen bis zur Selbstkostenkalkulation je Bestellung.</p>
   </div>
 </div>
 
 <main>
   <div class="container-narrow">
 
-    <!-- D1: Durchgerechnetes Beispiel -->
+    <!-- =========================================================
+         D1: Dreistufige Beispielkalkulation
+         ========================================================= -->
     <section class="section" id="d1">
       <div class="section-title-wrap">
         <div class="section-label"><a href="#d1" style="color:inherit; text-decoration:none;">D1</a></div>
         <h2>Preisbestimmung mit KLR – Beispiel aus dem E-Commerce</h2>
       </div>
+
+      <!-- Einleitungskarte -->
       <div class="card">
-        <p>Ein Online-Händler möchte den Mindestverkaufspreis für ein Produkt ermitteln.
-        Dazu erfasst er zunächst alle anfallenden Kosten (Stufe 1: Kostenarten), ordnet die <strong>Gemeinkosten</strong> Kostenstellen zu (Stufe 2)
-        und rechnet sie anschließend auf die Bestellung als Kostenträger um (Stufe 3). <strong>Einzelkosten</strong> werden direkt dem Kostenträger zugeordnet.</p>
+        <p>
+          Ein Online-Händler möchte den Mindestverkaufspreis für ein Produkt ermitteln.
+          Dazu durchläuft er alle drei Stufen der Kosten- und Leistungsrechnung:
+          Erst werden alle Kosten erfasst, dann nach Abteilungen gebündelt,
+          und schließlich auf die einzelne Bestellung als Kostenträger heruntergerechnet.
+        </p>
+        <div class="stufe-intro navy" style="margin-top:1rem; margin-bottom:0;">
+          <strong>Ziel:</strong> Wir berechnen die Selbstkosten je Bestellung aus
+          <strong>Einzelkosten</strong> (direkt zurechenbar) und
+          <strong>Gemeinkosten</strong> (werden über den Betriebsabrechnungsbogen umgelegt).
+          <strong>Annahme: 1.000 Bestellungen/Monat.</strong>
+        </div>
       </div>
 
-            <div class="card card-blue">
-        <h3>Stufe 1: Kostenartenrechnung (Welche Kosten?)</h3>
-        <p style="font-size:.9rem; color:var(--text-light); margin-top:.5rem;">
-          In der Kostenartenrechnung werden die Kosten nach Art erfasst. Für das Beispiel unterscheiden wir <strong>Einzelkosten</strong> (direkt zurechenbar) und <strong>Gemeinkosten</strong> (nicht direkt zurechenbar). Die Kennzeichnung <span class="badge badge--fix">fix</span> bzw. <span class="badge badge--var">variabel</span> zeigt, ob die Kosten mit der Bestellmenge schwanken.
-        </p>
+      <!-- -------------------------------------------------------
+           STUFE 1: Kostenartenrechnung
+           ------------------------------------------------------- -->
+      <div class="card card-blue" id="stufe1-karte">
 
-        <h4 style="margin-top:1rem;">Einzelkosten je Bestellung</h4>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Kostenart</th><th style="text-align:right;">Betrag pro Bestellung</th></tr></thead>
-            <tbody>
-              <tr><td>Wareneinsatz <span class="badge badge--var">variabel</span></td><td style="text-align:right;">20,00 €</td></tr>
-              <tr><td>Verpackung <span class="badge badge--var">variabel</span></td><td style="text-align:right;">1,00 €</td></tr>
-              <tr><td>Versand (Label/Porto) <span class="badge badge--var">variabel</span></td><td style="text-align:right;">5,00 €</td></tr>
-              <tr style="background:var(--navy); color:white;">
-                <td><strong>Einzelkosten insgesamt je Bestellung</strong></td>
-                <td style="text-align:right;"><strong>26,00 €</strong></td>
-              </tr>
-            </tbody>
-          </table>
+        <!-- Stufen-Nummer + Titel -->
+        <div class="stufe-label">
+          <span class="stufe-num blue">1</span>
+          <h3 style="margin:0;">Stufe 1: Kostenartenrechnung</h3>
         </div>
 
-        <h4 style="margin-top:1rem;">Gemeinkosten pro Monat</h4>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Kostenart</th><th style="text-align:right;">Betrag pro Monat</th></tr></thead>
-            <tbody>
-              <tr><td>Miete Lager <span class="badge badge--fix">fix</span></td><td style="text-align:right;">3.000,00 €</td></tr>
-              <tr><td>Festgehälter (Lager/Support) <span class="badge badge--fix">fix</span></td><td style="text-align:right;">3.200,00 €</td></tr>
-              <tr><td>Shop-Software / Hosting / Tools <span class="badge badge--fix">fix</span></td><td style="text-align:right;">800,00 €</td></tr>
-              <tr><td>Agentur/Grundkosten Marketing <span class="badge badge--fix">fix</span></td><td style="text-align:right;">1.000,00 €</td></tr>
-              <tr><td>Marketing (Performance) <span class="badge badge--var">variabel</span></td><td style="text-align:right;">3.000,00 €</td></tr>
-              <tr><td><strong>Summe fixe Gemeinkosten pro Monat</strong> <span class="badge badge--fix">fix</span></td><td style="text-align:right;"><strong>8.000,00 €</strong></td></tr>
-              <tr><td><strong>Summe variable Gemeinkosten pro Monat</strong> <span class="badge badge--var">variabel</span></td><td style="text-align:right;"><strong>3.000,00 €</strong></td></tr>
-              <tr style="background:var(--navy); color:white;">
-                <td><strong>Gemeinkosten insgesamt pro Monat</strong></td>
-                <td style="text-align:right;"><strong>11.000,00 €</strong></td>
-              </tr>
-            </tbody>
-          </table>
+        <!-- Definitions-Satz -->
+        <div class="stufe-definition">
+          <span class="sd-icon">❓</span>
+          <span>Kostenartenrechnung: <em>Welche Art von Kosten sind in welcher Höhe entstanden?</em></span>
         </div>
 
-        <p style="font-size:.88rem; color:var(--text-light); margin-top:.75rem;">
-          Hinweis: Einzelkosten fließen später direkt in die Kostenträgerrechnung ein. Gemeinkosten werden zunächst über Kostenstellen gesammelt und anschließend als Zuschlag auf die Bestellung umgerechnet.
-        </p>
-      </div>
+        <!-- Erklärungstext Stufe 1 -->
+        <div class="stufe-intro">
+          In Stufe 1 werden die Kosten nach Art gegliedert: <strong>Einzelkosten</strong> können
+          einer Bestellung direkt zugeordnet werden, <strong>Gemeinkosten</strong> fallen periodisch
+          an und werden in Stufe 2 über den Betriebsabrechnungsbogen auf Bestellungen umgerechnet.
+          Badges markieren, ob eine Position <span class="badge-fix">fix</span> oder
+          <span class="badge-variabel">variabel</span> ist.
+        </div>
 
-      <div class="card">
-        <h3>Stufe 2: Kostenstellenrechnung (Wo entstehen die Kosten?)</h3>
-        <p style="font-size:.9rem; color:var(--text-light); margin-top:.5rem;">In Stufe 2 werden <strong>Gemeinkosten</strong> nach Entstehungsort/Verantwortung auf Kostenstellen (z.&nbsp;B. Abteilungen) gebündelt. <strong>Einzelkosten</strong> (Wareneinsatz, Verpackung, Porto) sind hier bewusst <em>nicht</em> enthalten, da sie direkt dem Kostenträger zugerechnet werden. Wichtig: In einer Kostenstelle können fixe und variable Gemeinkosten gleichzeitig vorkommen.</p>
-
+        <!-- Einzelkosten-Tabelle -->
+        <h4 style="margin-bottom:.5rem;">Einzelkosten – direkt je Bestellung zurechenbar</h4>
         <div class="table-wrap">
           <table>
             <thead>
               <tr>
-                <th>Kostenstelle</th>
-                <th style="text-align:right;">Gemeinkosten variabel/Monat</th>
-                <th style="text-align:right;">Gemeinkosten fix/Monat</th>
-                <th style="text-align:right;">Summe</th>
+                <th>Kostenart</th>
+                <th style="text-align:right;">Betrag je Bestellung</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Versand &amp; Lager</td>
-                <td style="text-align:right;">0,00 €</td>
-                <td style="text-align:right;">5.000,00 €</td>
-                <td style="text-align:right;">5.000,00 €</td>
+                <td>Wareneinsatz <span class="badge-variabel">variabel</span></td>
+                <td style="text-align:right;">20,00 €</td>
               </tr>
               <tr>
-                <td>Marketing</td>
+                <td>Verpackung <span class="badge-variabel">variabel</span></td>
+                <td style="text-align:right;">1,00 €</td>
+              </tr>
+              <tr>
+                <td>Versand (Label / Porto) <span class="badge-variabel">variabel</span></td>
+                <td style="text-align:right;">5,00 €</td>
+              </tr>
+              <tr>
+                <td>Marketing pro Verkauf (anteilig) <span class="badge-variabel">variabel</span></td>
+                <td style="text-align:right;">3,00 €</td>
+              </tr>
+              <tr style="background:var(--navy); color:white;">
+                <td><strong>Einzelkosten gesamt je Bestellung</strong></td>
+                <td style="text-align:right;"><strong>29,00 €</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Gemeinkosten-Tabelle -->
+        <h4 style="margin-top:1.25rem; margin-bottom:.5rem;">Gemeinkosten – fallen periodisch an, werden in Stufe 2 auf Kostenstellen verteilt</h4>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Kostenart</th>
+                <th style="text-align:right;">Betrag pro Monat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Miete Lager <span class="badge-fix">fix</span></td>
                 <td style="text-align:right;">3.000,00 €</td>
-                <td style="text-align:right;">1.000,00 €</td>
-                <td style="text-align:right;">4.000,00 €</td>
               </tr>
               <tr>
-                <td>IT/Verwaltung</td>
-                <td style="text-align:right;">0,00 €</td>
-                <td style="text-align:right;">2.000,00 €</td>
-                <td style="text-align:right;">2.000,00 €</td>
+                <td>Festgehälter (Lager / Support) <span class="badge-fix">fix</span></td>
+                <td style="text-align:right;">3.200,00 €</td>
               </tr>
-
+              <tr>
+                <td>Shop-Software / Hosting / Tools <span class="badge-fix">fix</span></td>
+                <td style="text-align:right;">800,00 €</td>
+              </tr>
+              <tr>
+                <td>Agentur / Grundkosten Marketing <span class="badge-fix">fix</span></td>
+                <td style="text-align:right;">1.000,00 €</td>
+              </tr>
               <tr style="background:var(--navy); color:white;">
-                <td><strong>Summe Gemeinkosten (Monat)</strong></td>
-                <td style="text-align:right;"><strong>3.000,00 €</strong></td>
+                <td><strong>Gemeinkosten gesamt pro Monat</strong></td>
                 <td style="text-align:right;"><strong>8.000,00 €</strong></td>
-                <td style="text-align:right;"><strong>11.000,00 €</strong></td>
               </tr>
             </tbody>
           </table>
-        
-        <p style="font-size:.88rem; color:var(--text-light); margin-top:.75rem;">Gesamt (Monat): Einzelkosten (26,00 € × 1.000 = 26.000,00 €) + Gemeinkosten (11.000,00 €) = 37.000,00 €.</p>
-</div>
+        </div>
+
+        <div class="info-banner" style="margin-top:1rem;">
+          <strong>→ Übergang zu Stufe 2:</strong> Die Gemeinkosten (8.000 €/Monat) werden jetzt im
+          Betriebsabrechnungsbogen auf die Kostenstellen des Unternehmens verteilt.
+          Die Einzelkosten fließen direkt in Stufe 3 ein.
+        </div>
       </div>
 
+      <!-- -------------------------------------------------------
+           STUFE 2: Kostenstellenrechnung – BAB
+           ------------------------------------------------------- -->
+      <div class="card">
+
+        <div class="stufe-label">
+          <span class="stufe-num">2</span>
+          <h3 style="margin:0;">Stufe 2: Kostenstellenrechnung – Betriebsabrechnungsbogen (BAB)</h3>
+        </div>
+
+        <!-- Definitions-Satz -->
+        <div class="stufe-definition">
+          <span class="sd-icon">📍</span>
+          <span>Kostenstellenrechnung: <em>Wo sind die Kosten entstanden? An welchen Stellen im Unternehmen?</em></span>
+        </div>
+
+        <!-- Erklärungstext Stufe 2 -->
+        <div class="stufe-intro">
+          Der <strong>Betriebsabrechnungsbogen (BAB)</strong> ist das zentrale Instrument der Kostenstellenrechnung.
+          In einer Tabelle stehen in den <strong>Zeilen die Gemeinkostenarten</strong>
+          (z. B. Miete, Gehälter) und in den <strong>Spalten die Kostenstellen</strong>
+          (z. B. Versand, Marketing, IT). Jede Gemeinkosten-Art wird anhand eines
+          <strong>Verteilungsschlüssels</strong> auf die Kostenstellen aufgeteilt, in denen sie
+          entstanden ist. <strong>Einzelkosten erscheinen hier nicht</strong> – sie werden direkt
+          dem Kostenträger (der Bestellung) zugeordnet.
+        </div>
+
+        <!-- Verteilungsschlüssel-Info -->
+        <div class="bab-key-box">
+          <strong>Verwendete Verteilungsschlüssel:</strong><br>
+          Miete Lager → 100 % Versand &amp; Lager (gesamte Fläche wird für Lager genutzt) ·
+          Festgehälter → anteilig nach Mitarbeiterzahl: 2 MA Lager/Support (2.000 €), 1,5 MA IT (1.200 €) ·
+          Shop-Software / Hosting → 100 % IT/Verwaltung (direkt zurechenbar) ·
+          Agentur / Marketing → 100 % Marketing (direkt zurechenbar)
+        </div>
+
+        <!-- BAB-Tabelle -->
+        <div class="bab-wrap">
+          <table class="bab-table">
+            <thead>
+              <tr>
+                <th style="text-align:left; min-width:180px;">Gemeinkostenart</th>
+                <th>Gesamt<br><span style="font-weight:400; font-size:.7rem;">/Monat</span></th>
+                <th>Verteilungs-<br>schlüssel</th>
+                <th style="background:#0f3a6e;">Versand &amp;<br>Lager</th>
+                <th style="background:#1a5276;">Marketing</th>
+                <th style="background:#1a3a5c;">IT /<br>Verwaltung</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Zeile 1: Miete -->
+              <tr>
+                <td><strong>Miete Lager</strong> <span class="badge-fix">fix</span></td>
+                <td>3.000,00 €</td>
+                <td style="font-size:.79rem; color:var(--text-light);">100 % Lager-<br>fläche</td>
+                <td>3.000,00 €</td>
+                <td>–</td>
+                <td>–</td>
+              </tr>
+              <!-- Zeile 2: Gehälter -->
+              <tr>
+                <td><strong>Festgehälter</strong> <span class="badge-fix">fix</span></td>
+                <td>3.200,00 €</td>
+                <td style="font-size:.79rem; color:var(--text-light);">Mitarbeiter-<br>anzahl</td>
+                <td>2.000,00 €</td>
+                <td>–</td>
+                <td>1.200,00 €</td>
+              </tr>
+              <!-- Zeile 3: Software -->
+              <tr>
+                <td><strong>Shop-Software / Hosting</strong> <span class="badge-fix">fix</span></td>
+                <td>800,00 €</td>
+                <td style="font-size:.79rem; color:var(--text-light);">direkt IT</td>
+                <td>–</td>
+                <td>–</td>
+                <td>800,00 €</td>
+              </tr>
+              <!-- Zeile 4: Agentur -->
+              <tr>
+                <td><strong>Agentur / Marketing</strong> <span class="badge-fix">fix</span></td>
+                <td>1.000,00 €</td>
+                <td style="font-size:.79rem; color:var(--text-light);">direkt<br>Marketing</td>
+                <td>–</td>
+                <td>1.000,00 €</td>
+                <td>–</td>
+              </tr>
+
+              <!-- Summen-Zeile -->
+              <tr class="bab-sum">
+                <td>Σ Gemeinkosten je Kostenstelle</td>
+                <td>8.000,00 €</td>
+                <td>–</td>
+                <td>5.000,00 €</td>
+                <td>1.000,00 €</td>
+                <td>2.000,00 €</td>
+              </tr>
+
+              <!-- Bezugsgröße -->
+              <tr class="bab-bezug">
+                <td>Bezugsgröße (Verteilungsschlüssel für Stufe 3)</td>
+                <td>1.000 Bestell./Monat</td>
+                <td>–</td>
+                <td>1.000 Bestellungen</td>
+                <td>1.000 Bestellungen</td>
+                <td>1.000 Bestellungen</td>
+              </tr>
+
+              <!-- Zuschlag je Kostenstelle -->
+              <tr class="bab-zuschlag">
+                <td>GK-Umlage je Bestellung</td>
+                <td>–</td>
+                <td>–</td>
+                <td>5,00 €</td>
+                <td>1,00 €</td>
+                <td>2,00 €</td>
+              </tr>
+
+              <!-- Gesamtzuschlag -->
+              <tr class="bab-total-zuschlag">
+                <td colspan="2">Gesamte GK-Umlage je Bestellung (5,00 + 1,00 + 2,00)</td>
+                <td colspan="4" style="text-align:right; font-size:1rem;">= 8,00 € je Bestellung</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p style="font-size:.85rem; color:var(--text-light); margin-top:.75rem;">
+          Alle 8.000 € Gemeinkosten sind vollständig auf die Kostenstellen verteilt – kein Cent bleibt unverrechnet.
+          Das Ergebnis: <strong>8,00 € Gemeinkostenumlage je Bestellung</strong>, die in Stufe 3 zu den Einzelkosten addiert werden.
+        </p>
+      </div>
+
+      <!-- -------------------------------------------------------
+           STUFE 3: Kostenträgerrechnung
+           ------------------------------------------------------- -->
       <div class="card card-amber">
-        <h3>Stufe 3: Kostenträgerrechnung (Wofür?) – Selbstkosten je Bestellung</h3>
-        <p style="font-size:.9rem; color:var(--text-light); margin-top:.5rem;">
-          In Stufe 3 werden die <strong>Einzelkosten</strong> direkt dem Kostenträger „Bestellung“ zugerechnet. Zusätzlich werden die in Stufe 2 gesammelten <strong>Gemeinkosten</strong> (fix &amp; variabel) auf die Bestellungen umgelegt (hier: 1.000 Bestellungen/Monat).
-        </p>
 
-        <h4 style="margin-top:1rem;">Einzelkosten je Bestellung</h4>
+        <div class="stufe-label">
+          <span class="stufe-num amber">3</span>
+          <h3 style="margin:0; color:var(--amber-dark);">Stufe 3: Kostenträgerrechnung – Selbstkosten je Bestellung</h3>
+        </div>
+
+        <!-- Definitions-Satz -->
+        <div class="stufe-definition" style="background:var(--amber-dark);">
+          <span class="sd-icon">🧾</span>
+          <span>Kostenträgerrechnung: <em>Wofür sind die Kosten entstanden? Sind sie gerechtfertigt?</em></span>
+        </div>
+
+        <!-- Erklärungstext Stufe 3 -->
+        <div class="stufe-intro amber">
+          In Stufe 3 werden die <strong>Einzelkosten je Bestellung</strong> (aus Stufe 1: 29,00 €)
+          mit der <strong>Gemeinkostenumlage je Bestellung</strong> (aus dem BAB in Stufe 2: 8,00 €)
+          zusammengeführt. Das Ergebnis sind die <strong>Selbstkosten je Bestellung – der Betrag,
+          der mindestens als Verkaufspreis erzielt werden muss</strong>, damit alle Kosten gedeckt sind.
+          Liegt der Verkaufspreis darunter, macht jede Bestellung Verlust.
+        </div>
+
+        <!-- Übersichtstabelle Stufe 3 -->
         <div class="table-wrap">
           <table>
-            <thead><tr><th>Position</th><th style="text-align:right;">Betrag</th></tr></thead>
-            <tbody>
-              <tr><td>Wareneinsatz <span class="badge badge--var">variabel</span></td><td style="text-align:right;">20,00 €</td></tr>
-              <tr><td>Verpackung <span class="badge badge--var">variabel</span></td><td style="text-align:right;">1,00 €</td></tr>
-              <tr><td>Versand (Label/Porto) <span class="badge badge--var">variabel</span></td><td style="text-align:right;">5,00 €</td></tr>
-              <tr style="background:var(--navy); color:white;">
-                <td><strong>Einzelkosten je Bestellung</strong></td>
-                <td style="text-align:right;"><strong>26,00 €</strong></td>
+            <thead>
+              <tr>
+                <th>Position</th>
+                <th style="text-align:right;">je Bestellung</th>
+                <th style="text-align:right; font-size:.78rem; color:rgba(255,255,255,.7);">Quelle / Herleitung</th>
               </tr>
+            </thead>
+            <tbody>
+
+              <!-- Block: Einzelkosten -->
+              <tr class="table-section-head">
+                <td colspan="3">① Einzelkosten – direkt aus Stufe 1</td>
+              </tr>
+              <tr>
+                <td>Wareneinsatz <span class="badge-variabel">variabel</span></td>
+                <td style="text-align:right;">20,00 €</td>
+                <td style="text-align:right; font-size:.82rem; color:var(--text-light);">direkt zurechenbar</td>
+              </tr>
+              <tr>
+                <td>Verpackung <span class="badge-variabel">variabel</span></td>
+                <td style="text-align:right;">1,00 €</td>
+                <td style="text-align:right; font-size:.82rem; color:var(--text-light);">direkt zurechenbar</td>
+              </tr>
+              <tr>
+                <td>Versand (Label / Porto) <span class="badge-variabel">variabel</span></td>
+                <td style="text-align:right;">5,00 €</td>
+                <td style="text-align:right; font-size:.82rem; color:var(--text-light);">direkt zurechenbar</td>
+              </tr>
+              <tr>
+                <td>Marketing pro Verkauf (anteilig) <span class="badge-variabel">variabel</span></td>
+                <td style="text-align:right;">3,00 €</td>
+                <td style="text-align:right; font-size:.82rem; color:var(--text-light);">direkt zurechenbar</td>
+              </tr>
+              <tr style="background:var(--blue-xlight);">
+                <td><strong>Σ Einzelkosten je Bestellung</strong></td>
+                <td style="text-align:right;"><strong>29,00 €</strong></td>
+                <td></td>
+              </tr>
+
+              <!-- Block: GK-Umlage aus BAB -->
+              <tr class="table-section-head">
+                <td colspan="3">② Gemeinkostenumlage – aus BAB (Stufe 2) je Bestellung</td>
+              </tr>
+              <tr>
+                <td>GK-Umlage Versand &amp; Lager <span class="badge-fix">fix</span></td>
+                <td style="text-align:right;">5,00 €</td>
+                <td style="text-align:right; font-size:.82rem; color:var(--text-light);">5.000 € ÷ 1.000</td>
+              </tr>
+              <tr>
+                <td>GK-Umlage Marketing <span class="badge-fix">fix</span></td>
+                <td style="text-align:right;">1,00 €</td>
+                <td style="text-align:right; font-size:.82rem; color:var(--text-light);">1.000 € ÷ 1.000</td>
+              </tr>
+              <tr>
+                <td>GK-Umlage IT / Verwaltung <span class="badge-fix">fix</span></td>
+                <td style="text-align:right;">2,00 €</td>
+                <td style="text-align:right; font-size:.82rem; color:var(--text-light);">2.000 € ÷ 1.000</td>
+              </tr>
+              <tr style="background:var(--amber-light);">
+                <td><strong>Σ Gemeinkostenumlage je Bestellung</strong></td>
+                <td style="text-align:right;"><strong>8,00 €</strong></td>
+                <td style="text-align:right; font-size:.82rem; color:var(--text-light);">8.000 € ÷ 1.000</td>
+              </tr>
+
+              <!-- Selbstkosten -->
+              <tr style="background:var(--navy); color:white;">
+                <td><strong>= Selbstkosten je Bestellung  ①+②</strong></td>
+                <td style="text-align:right;"><strong>37,00 €</strong></td>
+                <td style="text-align:right; font-size:.82rem; color:rgba(255,255,255,.6);">29,00 + 8,00</td>
+              </tr>
+
             </tbody>
           </table>
         </div>
 
-        <h4 style="margin-top:1rem;">Gemeinkosten je Bestellung (umgelegt aus Stufe 2)</h4>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Position</th><th style="text-align:right;">Betrag</th></tr></thead>
-            <tbody>
-              <tr><td>Gemeinkosten fix pro Monat <span class="badge badge--fix">fix</span></td><td style="text-align:right;">8.000,00 €</td></tr>
-              <tr><td>Gemeinkosten variabel pro Monat <span class="badge badge--var">variabel</span></td><td style="text-align:right;">3.000,00 €</td></tr>
-              <tr><td><strong>Gemeinkosten gesamt pro Monat</strong></td><td style="text-align:right;"><strong>11.000,00 €</strong></td></tr>
-              <tr><td>Bestellungen pro Monat (geplant)</td><td style="text-align:right;">1.000 Bestellungen</td></tr>
-              <tr><td>Fixe Gemeinkosten je Bestellung <span class="badge badge--fix">fix</span></td><td style="text-align:right;">8,00 €</td></tr>
-              <tr><td>Variable Gemeinkosten je Bestellung <span class="badge badge--var">variabel</span></td><td style="text-align:right;">3,00 €</td></tr>
-              <tr style="background:var(--navy); color:white;">
-                <td><strong>Gemeinkosten je Bestellung</strong></td>
-                <td style="text-align:right;"><strong>11,00 €</strong></td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="info-banner" style="margin-top:1rem; background:var(--amber-light); border-color:#fde68a; color:#92400e;">
+          <strong>Interpretation:</strong> Die Selbstkosten von <strong>37,00 €</strong> sind die absolute Preisuntergrenze.
+          Jeder Cent darunter bedeutet: Das Unternehmen macht mit dieser Bestellung Verlust.
+          Ist der Verkaufspreis genau 37,00 €, sind alle Kosten gedeckt – es entsteht aber kein Gewinn.
         </div>
-
-        <div class="formula-box" style="margin-top:1rem;">Selbstkosten = Einzelkosten + Gemeinkosten = 26,00 € + 11,00 € = <strong>37,00 €</strong></div>
-        <p style="font-size:.88rem; color:var(--text-light); margin-top:.75rem;">
-          Berechnung Gemeinkosten je Bestellung: (8.000 € + 3.000 €) ÷ 1.000 = 11,00 € (davon 8,00 € <span class="badge badge--fix">fix</span> und 3,00 € <span class="badge badge--var">variabel</span>).
-        </p>
       </div>
 
-      </div>
-
+      <!-- -------------------------------------------------------
+           Zielverkaufspreis & Deckungsbeitrag
+           ------------------------------------------------------- -->
       <div class="card">
-        <h3>Schritt 3: Selbstkosten und Zielverkaufspreis</h3>
-        <div class="formula-box">Selbstkosten = Einzelkosten je Bestellung + Gemeinkosten je Bestellung = 26,00 € + 11,00 € = <strong>37,00 €</strong></div>
-        <div class="formula-box">Zielverkaufspreis = Selbstkosten × (1 + Gewinnzuschlag) = 37,00 € × 1,15 = <strong>42,55 €</strong> ≈ gerundet <strong>42,90 €</strong></div>
-        <p style="margin-top:.75rem;">Bei einem Ziel-Gewinnzuschlag von 15 % ergibt sich ein Zielverkaufspreis von 42,55 €, gerundet auf 42,90 €.</p>
-      </div>
+        <h3>Selbstkosten → Zielverkaufspreis &amp; Deckungsbeitrag</h3>
+        <div class="formula-box">Selbstkosten = Einzelkosten + Gemeinkostenumlage = 29,00 € + 8,00 € = <strong>37,00 €</strong></div>
+        <div class="formula-box">Zielverkaufspreis = Selbstkosten × (1 + Gewinnzuschlag 15&nbsp;%) = 37,00 € × 1,15 = <strong>42,55 €</strong> ≈ <strong>42,90 €</strong></div>
 
-      <div class="card">
-        <h3>Schritt 4: Deckungsbeitrag und Break-even</h3>
-        <div class="grid-2">
+        <div class="grid-2" style="margin-top:1.25rem;">
           <div>
-            <h4>Deckungsbeitrag</h4>
-            <div class="formula-box">DB = Verkaufspreis – variable Kosten (Einzelkosten + variable Gemeinkosten)<br>= 42,90 € – (26,00 € + 3,00 €) = 42,90 € – 29,00 € = <strong>13,90 €</strong></div>
-            <p style="font-size:.9rem;">Der Deckungsbeitrag von 13,90 € „deckt" anteilig die Fixkosten. Erst wenn alle Fixkosten gedeckt sind, entsteht Gewinn.</p>
+            <h4>Deckungsbeitrag (DB)</h4>
+            <div class="formula-box">DB = Verkaufspreis – variable Einzelkosten<br>= 42,90 € – 29,00 € = <strong>13,90 €</strong></div>
+            <p style="font-size:.9rem;">Jede Bestellung trägt 13,90 € zur Deckung der Gemeinkosten bei. Erst wenn alle Gemeinkosten gedeckt sind, entsteht echter Gewinn.</p>
           </div>
           <div>
             <h4>Break-even-Menge</h4>
-            <div class="formula-box">Break-even = Fixkosten ÷ DB<br>= 8.000 € ÷ 13,90 € ≈ <strong>576 Bestellungen</strong></div>
-            <p style="font-size:.9rem;">Ab der 577. Bestellung im Monat wird echter Gewinn erzielt – die Fixkosten sind vollständig gedeckt.</p>
+            <div class="formula-box">BEP = Gemeinkosten ÷ DB<br>= 8.000 € ÷ 13,90 € ≈ <strong>576 Bestellungen</strong></div>
+            <p style="font-size:.9rem;">Ab der 577. Bestellung im Monat ist der Shop profitabel – alle Gemeinkosten sind vollständig gedeckt.</p>
           </div>
         </div>
       </div>
 
+      <!-- Gesamtübersicht -->
       <div class="table-wrap">
         <table>
           <thead><tr><th colspan="2">Gesamtübersicht: Kalkulation je Bestellung</th></tr></thead>
           <tbody>
-            <tr><td>Einzelkosten je Bestellung</td><td style="text-align:right;">26,00 €</td></tr>
-            <tr><td>Variable Gemeinkosten je Bestellung</td><td style="text-align:right;">3,00 €</td></tr>
-            <tr><td>Fixe Gemeinkosten je Bestellung (bei 1.000 Bestellungen)</td><td style="text-align:right;">8,00 €</td></tr>
-            <tr><td><strong>Gemeinkosten je Bestellung</strong></td><td style="text-align:right;"><strong>11,00 €</strong></td></tr>
-            <tr><td><strong>Selbstkosten je Bestellung</strong></td><td style="text-align:right;"><strong>37,00 €</strong></td></tr>
-            <tr><td>Gewinnzuschlag 15 %</td><td style="text-align:right;">5,55 €</td></tr>
-            <tr><td><strong>Zielverkaufspreis (gerundet)</strong></td><td style="text-align:right;"><strong>42,90 €</strong></td></tr>
+            <tr><td>Einzelkosten je Bestellung (Stufe 1)</td><td style="text-align:right;">29,00 €</td></tr>
+            <tr><td>+ Gemeinkostenumlage je Bestellung (Stufe 2 BAB, 8.000 € ÷ 1.000)</td><td style="text-align:right;">+ 8,00 €</td></tr>
+            <tr style="background:var(--navy); color:white;">
+              <td><strong>= Selbstkosten je Bestellung (Stufe 3)</strong></td><td style="text-align:right;"><strong>37,00 €</strong></td>
+            </tr>
+            <tr><td>+ Gewinnzuschlag 15 %</td><td style="text-align:right;">+ 5,55 €</td></tr>
+            <tr><td><strong>= Zielverkaufspreis (gerundet)</strong></td><td style="text-align:right;"><strong>42,90 €</strong></td></tr>
             <tr style="background:var(--blue-xlight);"><td><strong>Deckungsbeitrag je Bestellung</strong></td><td style="text-align:right;"><strong>13,90 €</strong></td></tr>
             <tr style="background:var(--amber-light);"><td><strong>Break-even-Menge pro Monat</strong></td><td style="text-align:right;"><strong>≈ 576 Bestellungen</strong></td></tr>
           </tbody>
@@ -239,7 +508,9 @@
 
     <hr class="divider">
 
-    <!-- D2: Rechner -->
+    <!-- =========================================================
+         D2: Interaktiver Rechner
+         ========================================================= -->
     <section class="section" id="d2">
       <div class="section-title-wrap">
         <div class="section-label"><a href="#d2" style="color:inherit; text-decoration:none;">D2</a></div>
@@ -255,12 +526,12 @@
               <input type="number" id="vp" name="vp" min="0" step="0.01" placeholder="z. B. 42.90" value="42.90" required>
             </div>
             <div class="form-group">
-              <label for="vk">Variable Kosten je Bestellung (€) <span style="opacity:.8;">(Einzelkosten + variable Gemeinkosten)</span></label>
+              <label for="vk">Variable Kosten je Bestellung (€)</label>
               <input type="number" id="vk" name="vk" min="0" step="0.01" placeholder="z. B. 29.00" value="29.00" required>
             </div>
           </div>
           <div class="form-group" style="max-width:340px;">
-            <label for="fk">Fixe Gemeinkosten pro Monat (€)</label>
+            <label for="fk">Fixe Kosten pro Monat (€)</label>
             <input type="number" id="fk" name="fk" min="0" step="0.01" placeholder="z. B. 8000" value="8000" required>
           </div>
           <div style="display:flex; gap:.75rem; flex-wrap:wrap;">
@@ -285,10 +556,10 @@
 
     <div class="merke-box">
       <ul>
-        <li><strong>Selbstkosten</strong> = <strong>Einzelkosten</strong> + anteilige <strong>Gemeinkosten</strong> (fix &amp; variabel) – das ist die absolute Preisuntergrenze.</li>
-        <li>Der <strong>Deckungsbeitrag</strong> (Preis – variable Kosten) zeigt, wie viel jede Bestellung zur Deckung der Fixkosten beiträgt.</li>
-        <li>Der <strong>Break-even</strong> ist die Menge, ab der alle Fixkosten gedeckt sind – erst danach entsteht Gewinn.</li>
-        <li>Bei 8.000 € Fixkosten und 13,90 € DB je Bestellung braucht der Shop mindestens <strong>576 Bestellungen/Monat</strong>.</li>
+        <li>Der <strong>BAB (Betriebsabrechnungsbogen)</strong> ist das Werkzeug der Kostenstellenrechnung: Gemeinkosten-Arten in den Zeilen, Kostenstellen in den Spalten – verteilt nach Schlüsseln.</li>
+        <li><strong>Selbstkosten</strong> = Einzelkosten (direkt) + Gemeinkostenumlage (aus BAB) – das ist die absolute Preisuntergrenze.</li>
+        <li>Der <strong>Deckungsbeitrag</strong> (Preis – variable Kosten) zeigt, wie viel jede Bestellung zur Deckung der Gemeinkosten beiträgt.</li>
+        <li>Ab der <strong>Break-even-Menge</strong> (576 Bestellungen/Monat) sind alle Gemeinkosten gedeckt – erst dann entsteht echter Gewinn.</li>
       </ul>
     </div>
 
@@ -315,6 +586,7 @@
     <span class="footer-copy">Lernmodul · Kaufleute E-Commerce · made by Ben &amp; Jazz</span>
   </div>
 </footer>
+
 <script src="script.js"></script>
 </body>
 </html>
