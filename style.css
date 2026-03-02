@@ -433,3 +433,27 @@ tr:last-child td { border-bottom: none; }
   .result-row { flex-direction: column; align-items: flex-start; gap: .2rem; }
   .footer-inner { flex-direction: column; align-items: flex-start; gap: 1rem; }
 }
+/* KLR Badges (fix/variabel) */
+.badge{
+  display:inline-flex;
+  align-items:center;
+  padding:.18rem .55rem;
+  border-radius:999px;
+  font-size:.72rem;
+  font-weight:600;
+  line-height:1;
+  white-space:nowrap;
+  border:1px solid rgba(0,0,0,.10);
+  background: var(--blue-xlight, #eef4ff);
+  color: var(--navy, #0b1a3a);
+}
+
+.badge--fix{
+  background: var(--amber-light, #fff2cc);
+  color: var(--navy, #0b1a3a);
+}
+
+.badge--var{
+  background: var(--blue-xlight, #eef4ff);
+  color: var(--navy, #0b1a3a);
+}
