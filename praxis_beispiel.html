@@ -55,16 +55,18 @@
 
             <div class="card card-blue">
         <h3>Stufe 1: Kostenartenrechnung (Welche Kosten?)</h3>
-        <p style="font-size:.9rem; color:var(--text-light); margin-top:.5rem;">In der Kostenartenrechnung werden die Kosten nach Art erfasst. Im E-Commerce ist zusätzlich wichtig: <strong>Einzelkosten</strong> (direkt zurechenbar, z.&nbsp;B. Wareneinsatz/Porto) werden später direkt dem Kostenträger zugeordnet, <strong>Gemeinkosten</strong> (z.&nbsp;B. Miete, Verwaltung, Marketing) werden über Kostenstellen gesammelt und anschließend verteilt.</p>
+        <p style="font-size:.9rem; color:var(--text-light); margin-top:.5rem;">
+          In der Kostenartenrechnung werden die Kosten nach Art erfasst. Für das Beispiel unterscheiden wir <strong>Einzelkosten</strong> (direkt zurechenbar) und <strong>Gemeinkosten</strong> (nicht direkt zurechenbar). Die Kennzeichnung <span class="badge badge--fix">fix</span> bzw. <span class="badge badge--var">variabel</span> zeigt, ob die Kosten mit der Bestellmenge schwanken.
+        </p>
 
-        <h4 style="margin-top:1rem;">Einzelkosten je Bestellung (direkt zurechenbar)</h4>
+        <h4 style="margin-top:1rem;">Einzelkosten je Bestellung</h4>
         <div class="table-wrap">
           <table>
             <thead><tr><th>Kostenart</th><th style="text-align:right;">Betrag pro Bestellung</th></tr></thead>
             <tbody>
-              <tr><td>Wareneinsatz <span style="opacity:.8;">(Einzelkosten)</span></td><td style="text-align:right;">20,00 €</td></tr>
-              <tr><td>Verpackung <span style="opacity:.8;">(Einzelkosten)</span></td><td style="text-align:right;">1,00 €</td></tr>
-              <tr><td>Versand (Label/Porto) <span style="opacity:.8;">(Einzelkosten)</span></td><td style="text-align:right;">5,00 €</td></tr>
+              <tr><td>Wareneinsatz <span class="badge badge--var">variabel</span></td><td style="text-align:right;">20,00 €</td></tr>
+              <tr><td>Verpackung <span class="badge badge--var">variabel</span></td><td style="text-align:right;">1,00 €</td></tr>
+              <tr><td>Versand (Label/Porto) <span class="badge badge--var">variabel</span></td><td style="text-align:right;">5,00 €</td></tr>
               <tr style="background:var(--navy); color:white;">
                 <td><strong>Einzelkosten insgesamt je Bestellung</strong></td>
                 <td style="text-align:right;"><strong>26,00 €</strong></td>
@@ -73,40 +75,29 @@
           </table>
         </div>
 
-        <h4 style="margin-top:1rem;">Variable Gemeinkosten pro Monat (nicht direkt zurechenbar)</h4>
+        <h4 style="margin-top:1rem;">Gemeinkosten pro Monat</h4>
         <div class="table-wrap">
           <table>
             <thead><tr><th>Kostenart</th><th style="text-align:right;">Betrag pro Monat</th></tr></thead>
             <tbody>
-              <tr><td>Marketing (Performance, variabel) <span style="opacity:.8;">(Gemeinkosten)</span></td><td style="text-align:right;">3.000,00 €</td></tr>
+              <tr><td>Miete Lager <span class="badge badge--fix">fix</span></td><td style="text-align:right;">3.000,00 €</td></tr>
+              <tr><td>Festgehälter (Lager/Support) <span class="badge badge--fix">fix</span></td><td style="text-align:right;">3.200,00 €</td></tr>
+              <tr><td>Shop-Software / Hosting / Tools <span class="badge badge--fix">fix</span></td><td style="text-align:right;">800,00 €</td></tr>
+              <tr><td>Agentur/Grundkosten Marketing <span class="badge badge--fix">fix</span></td><td style="text-align:right;">1.000,00 €</td></tr>
+              <tr><td>Marketing (Performance) <span class="badge badge--var">variabel</span></td><td style="text-align:right;">3.000,00 €</td></tr>
+              <tr><td><strong>Summe fixe Gemeinkosten pro Monat</strong> <span class="badge badge--fix">fix</span></td><td style="text-align:right;"><strong>8.000,00 €</strong></td></tr>
+              <tr><td><strong>Summe variable Gemeinkosten pro Monat</strong> <span class="badge badge--var">variabel</span></td><td style="text-align:right;"><strong>3.000,00 €</strong></td></tr>
               <tr style="background:var(--navy); color:white;">
-                <td><strong>Variable Gemeinkosten insgesamt pro Monat</strong></td>
-                <td style="text-align:right;"><strong>3.000,00 €</strong></td>
+                <td><strong>Gemeinkosten insgesamt pro Monat</strong></td>
+                <td style="text-align:right;"><strong>11.000,00 €</strong></td>
               </tr>
             </tbody>
           </table>
         </div>
 
         <p style="font-size:.88rem; color:var(--text-light); margin-top:.75rem;">
-          Hinweis: Einzelkosten werden später direkt dem Kostenträger (Bestellung/Produkt) zugerechnet. Gemeinkosten werden über Kostenstellen erfasst und anschließend verteilt.
+          Hinweis: Einzelkosten fließen später direkt in die Kostenträgerrechnung ein. Gemeinkosten werden zunächst über Kostenstellen gesammelt und anschließend als Zuschlag auf die Bestellung umgerechnet.
         </p>
-
-        <h4 style="margin-top:1rem;">Fixe Gemeinkosten pro Monat</h4>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Fixe Kostenart <span style="opacity:.8;">(Gemeinkosten)</span></th><th style="text-align:right;">Betrag pro Monat</th></tr></thead>
-            <tbody>
-              <tr><td>Miete Lager</td><td style="text-align:right;">3.000,00 €</td></tr>
-              <tr><td>Festgehälter (Lager/Support)</td><td style="text-align:right;">3.200,00 €</td></tr>
-              <tr><td>Shop-Software / Hosting / Tools</td><td style="text-align:right;">800,00 €</td></tr>
-              <tr><td>Agentur/Grundkosten Marketing</td><td style="text-align:right;">1.000,00 €</td></tr>
-              <tr style="background:var(--navy); color:white;">
-                <td><strong>Fixe Kosten insgesamt pro Monat</strong></td>
-                <td style="text-align:right;"><strong>8.000,00 €</strong></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </div>
 
       <div class="card">
@@ -157,19 +148,38 @@
       </div>
 
       <div class="card card-amber">
-        <h3>Stufe 3: Kostenträgerrechnung (Wofür?) – Gemeinkosten anteilig je Bestellung</h3>
-        <p style="font-size:.9rem; color:var(--text-light); margin-top:.5rem;">Die in Stufe 2 gesammelten Gemeinkosten werden nun auf den Kostenträger „Bestellung“ umgerechnet (hier: 1.000 Bestellungen/Monat).</p>
+        <h3>Stufe 3: Kostenträgerrechnung (Wofür?) – Selbstkosten je Bestellung</h3>
+        <p style="font-size:.9rem; color:var(--text-light); margin-top:.5rem;">
+          In Stufe 3 werden die <strong>Einzelkosten</strong> direkt dem Kostenträger „Bestellung“ zugerechnet. Zusätzlich werden die in Stufe 2 gesammelten <strong>Gemeinkosten</strong> (fix &amp; variabel) auf die Bestellungen umgelegt (hier: 1.000 Bestellungen/Monat).
+        </p>
+
+        <h4 style="margin-top:1rem;">Einzelkosten je Bestellung</h4>
         <div class="table-wrap">
           <table>
             <thead><tr><th>Position</th><th style="text-align:right;">Betrag</th></tr></thead>
             <tbody>
-              <tr><td>Gemeinkosten fix pro Monat (Lager, Personal, Software, …)</td><td style="text-align:right;">8.000,00 €</td></tr>
-              <tr><td>Gemeinkosten variabel pro Monat (z.&nbsp;B. Marketing Performance)</td><td style="text-align:right;">3.000,00 €</td></tr>
+              <tr><td>Wareneinsatz <span class="badge badge--var">variabel</span></td><td style="text-align:right;">20,00 €</td></tr>
+              <tr><td>Verpackung <span class="badge badge--var">variabel</span></td><td style="text-align:right;">1,00 €</td></tr>
+              <tr><td>Versand (Label/Porto) <span class="badge badge--var">variabel</span></td><td style="text-align:right;">5,00 €</td></tr>
+              <tr style="background:var(--navy); color:white;">
+                <td><strong>Einzelkosten je Bestellung</strong></td>
+                <td style="text-align:right;"><strong>26,00 €</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 style="margin-top:1rem;">Gemeinkosten je Bestellung (umgelegt aus Stufe 2)</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Position</th><th style="text-align:right;">Betrag</th></tr></thead>
+            <tbody>
+              <tr><td>Gemeinkosten fix pro Monat <span class="badge badge--fix">fix</span></td><td style="text-align:right;">8.000,00 €</td></tr>
+              <tr><td>Gemeinkosten variabel pro Monat <span class="badge badge--var">variabel</span></td><td style="text-align:right;">3.000,00 €</td></tr>
               <tr><td><strong>Gemeinkosten gesamt pro Monat</strong></td><td style="text-align:right;"><strong>11.000,00 €</strong></td></tr>
               <tr><td>Bestellungen pro Monat (geplant)</td><td style="text-align:right;">1.000 Bestellungen</td></tr>
-
-              <tr><td>Fixe Gemeinkosten je Bestellung</td><td style="text-align:right;">8,00 €</td></tr>
-              <tr><td>Variable Gemeinkosten je Bestellung</td><td style="text-align:right;">3,00 €</td></tr>
+              <tr><td>Fixe Gemeinkosten je Bestellung <span class="badge badge--fix">fix</span></td><td style="text-align:right;">8,00 €</td></tr>
+              <tr><td>Variable Gemeinkosten je Bestellung <span class="badge badge--var">variabel</span></td><td style="text-align:right;">3,00 €</td></tr>
               <tr style="background:var(--navy); color:white;">
                 <td><strong>Gemeinkosten je Bestellung</strong></td>
                 <td style="text-align:right;"><strong>11,00 €</strong></td>
@@ -177,7 +187,11 @@
             </tbody>
           </table>
         </div>
-        <p style="font-size:.88rem; color:var(--text-light); margin-top:.75rem;">Berechnung: (8.000 € + 3.000 €) ÷ 1.000 = 11,00 € je Bestellung (davon 8,00 € fix und 3,00 € variabel).</p>
+
+        <div class="formula-box" style="margin-top:1rem;">Selbstkosten = Einzelkosten + Gemeinkosten = 26,00 € + 11,00 € = <strong>37,00 €</strong></div>
+        <p style="font-size:.88rem; color:var(--text-light); margin-top:.75rem;">
+          Berechnung Gemeinkosten je Bestellung: (8.000 € + 3.000 €) ÷ 1.000 = 11,00 € (davon 8,00 € <span class="badge badge--fix">fix</span> und 3,00 € <span class="badge badge--var">variabel</span>).
+        </p>
       </div>
 
       </div>
