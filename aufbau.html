@@ -52,61 +52,19 @@
         zentrale Frage beantwortet – und die Ergebnisse einer Stufe fließen in die nächste ein.</p>
       </div>
 
-      <!-- Flussdiagramm – vollständig responsives CSS-Grid, kein Scrollen -->
-      <div class="klr-diagram">
-        <div class="klr-diagram-title">Kosten- und Leistungsrechnung – Überblick</div>
+      <!-- Diagramm (wie im Beispiel) – als Bild eingebunden, responsiv -->
+      <div class="klr-diagram" aria-label="Diagramm: Aufbau der Kosten- und Leistungsrechnung">
+        <div class="klr-diagram-title">Kosten- und Leistungsrechnung</div>
 
-        <div class="klr-flow-grid">
-
-          <!-- SPALTE 1: Kostenartenrechnung -->
-          <div class="klf-col">
-            <div class="klf-box klf-header">Kostenartenrechnung</div>
-            <div class="klf-box klf-question">
-              <strong>WELCHE</strong> Kosten sind angefallen?
-            </div>
-            <div class="klf-box klf-content" style="font-size:.79rem; color:var(--text-light); border-style:dashed;">
-              Erfassung aller Kosten nach ihrer Art (Personal, Material, Versand, Marketing …)
-            </div>
-          </div>
-
-          <!-- PFEIL 1 -->
-          <div class="klf-arrow">→</div>
-
-          <!-- SPALTE 2: Kostenstellenrechnung -->
-          <div class="klf-col">
-            <div class="klf-box klf-header teal">Kostenstellenrechnung</div>
-
-            <div class="klf-box klf-content">
-              <strong>Gemeinkosten</strong><br>
-              <span style="font-size:.78rem; color:var(--text-light);">können Kostenträgern <strong>NICHT DIREKT</strong> zugeordnet werden → über Kostenstellen verteilen</span>
-            </div>
-            <div class="klf-box klf-content">
-              <strong>Einzelkosten</strong><br>
-              <span style="font-size:.78rem; color:var(--text-light);">können Kostenträgern <strong>DIREKT</strong> zugeordnet werden → direkt weiterverarbeiten</span>
-            </div>
-            <div class="klf-box klf-question">
-              <strong>WO</strong> sind die Kosten angefallen?
-            </div>
-          </div>
-
-          <!-- PFEIL 2 -->
-          <div class="klf-arrow">→</div>
-
-          <!-- SPALTE 3: Kostenträgerrechnung -->
-          <div class="klf-col">
-            <div class="klf-box klf-header red">Kostenträgerrechnung &amp; Kostenstellen</div>
-            <div class="klf-box klf-question" style="background:#fff5f5; border-color:#fca5a5;">
-              <strong>WOFÜR</strong> sind die Kosten angefallen?
-            </div>
-            <div class="klf-box klf-content highlight-red">
-              <strong>Kostenstellen</strong> = Orte der Leistungsentstehung (z. B. Abteilungen)
-            </div>
-            <div class="klf-box klf-content highlight-red">
-              <strong>Kostenträger</strong> = Produkte oder Dienstleistungen
-            </div>
-          </div>
-
-        </div><!-- /klr-flow-grid -->
+        <figure style="margin:0;">
+          <!-- Lege die Grafik z.B. unter /img/klr-diagramm.png ab und passe den Pfad bei Bedarf an -->
+          <img
+            src="img/klr-diagramm.png"
+            alt="Übersicht KLR: Kostenartenrechnung beantwortet welche Kosten. Gemeinkosten gehen über die Kostenstellenrechnung zu Kostenstellen; Einzelkosten gehen direkt zur Kostenträgerrechnung. Kostenstellen sind Orte der Leistungsentstehung; Kostenträger sind Produkte oder Dienstleistungen."
+            style="width:100%; height:auto; display:block;"
+            loading="lazy"
+          >
+        </figure>
 
         <p style="font-size:.8rem; color:var(--text-light); margin-top:1.1rem; text-align:center;">
           Gemeinkosten fließen über die Kostenstellenrechnung in die Kostenträgerrechnung ein – Einzelkosten werden direkt zugerechnet.
